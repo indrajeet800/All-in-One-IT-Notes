@@ -1,0 +1,94 @@
+SQL Notes for Freshers - Basic-Guide
+################################################
+
+ What is SQL?
+ SQL (Structured Query Language) is the standard language used to communicate with relational
+ databases.
+
+ It is used to create, retrieve, update, and delete (CRUD) data in databases.
+
+##########################################################
+ SQL Environment Setup
+
+ Option 1: Install MySQL Server- Download from: https://dev.mysql.com/downloads/- Install MySQL Community Server and MySQL Workbench.- Set root password and choose Developer Default configuration.
+
+ Option 2: Install XAMPP (PHP + MySQL + Apache)- Download: https://www.apachefriends.org/index.html- Start Apache and MySQL from XAMPP Control Panel.- Use phpMyAdmin at http://localhost/phpmyadmin/
+
+
+ Option 3: Use Online SQL Editors- https://www.db-fiddle.com/- https://sqlzoo.net/- https://www.w3schools.com/sql/trysql.asp
+ SQL Database Components- Database: Collection of related tables.
+
+- Table: Stores data in rows and columns.- Row (Record): A single entry in a table.- Column (Field): A single attribute of a record.
+ Basic SQL Syntax
+
+
+########################################################
+ CREATE DATABASE my_database;
+ USE my_database;
+ CREATE TABLE employees (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    department VARCHAR(30),
+    salary DECIMAL(10, 2)
+ );
+
+#######################################################
+
+ INSERT INTO employees (id, name, department, salary)
+ VALUES (1, 'John Doe', 'IT', 55000.00);
+ SELECT * FROM employees;
+ UPDATE employees SET salary = 60000 WHERE id = 1;
+ DELETE FROM employees WHERE id = 1;
+ DROP TABLE employees;
+ DROP DATABASE my_database;
+
+###################################################
+ Data Types in SQL- INT: Integer numbers- DECIMAL: Floating-point numbers
+- VARCHAR(n): Text with max length n- DATE: Date values- BOOLEAN: TRUE or FALSE
+
+
+##################################################
+ SQL Queries (DQL - Data Query Language)
+#################################################
+
+ SELECT * FROM table_name;
+ SELECT name, salary FROM employees;
+ SELECT * FROM employees WHERE salary > 50000;
+ SELECT * FROM employees WHERE salary BETWEEN 30000 AND 60000;
+ SELECT * FROM employees WHERE name LIKE 'J%';
+ SELECT * FROM employees ORDER BY salary DESC;
+ SELECT * FROM employees LIMIT 5;
+
+##########################################################
+ SQL Functions
+##########################################################
+
+ SELECT COUNT(*) FROM employees;
+ SELECT AVG(salary) FROM employees;
+ 
+########################################################
+ SQL Constraints
+########################################################
+
+ PRIMARY KEY, FOREIGN KEY, NOT NULL, UNIQUE, DEFAULT, CHECK
+
+##############################################################
+ SQL Joins
+#############################################################
+
+ INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL JOIN
+
+##############################
+ Grouping and Filtering
+#############################
+
+
+ SELECT department, COUNT(*) FROM employees GROUP BY department;
+ SELECT department, AVG(salary) FROM employees GROUP BY department HAVING AVG(salary)
+ > 50000;
+
+User and Privileges (MySQL)
+
+ SQL Practice Exercises- Create a students table with name, roll, course, and marks.- Insert 5 records.- Write queries to find students with marks > 70, sort by marks descending, count per course,
+ average marks per course.
+ 
