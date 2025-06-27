@@ -1,3 +1,5 @@
+# Here is the some example of sql Tables How to Insert into table and how to build a table
+
 create database org;
 
 show databases;
