@@ -1,0 +1,76 @@
+1. Introduction to Hibernate
+Hibernate is an Object-Relational Mapping (ORM) tool for Java.
+
+It simplifies database interactions by mapping Java classes to database tables.
+
+Developed by Gavin King and is now a part of the JBoss community.
+
+
+
+
+2. Why Use Hibernate?
+Reduces boilerplate JDBC code.
+
+Handles SQL generation automatically.
+
+Offers caching mechanisms for better performance.
+
+Portable across databases (DB independence).
+
+Supports lazy/eager loading, annotations, and XML configuration.
+
+
+
+
+3. Core Features
+Feature	Description
+ORM Support	Maps Java objects to DB tables automatically.
+HQL (Hibernate Query Language)	An object-oriented version of SQL.
+Caching	First-level and second-level caching improves performance.
+Auto Table Generation	Automatically generates DB schema based on entities.
+Transaction Handling	Supports declarative and programmatic transaction management.
+Lazy Loading	Data is loaded only when accessed.
+
+
+
+4. Hibernate Architecture
+Configuration – Configures Hibernate using hibernate.cfg.xml or Java-based config.
+
+SessionFactory – A thread-safe factory to create Session objects.
+
+Session – Represents a unit of work between application and DB.
+
+Transaction – Manages atomic units of work.
+
+Query – Executes HQL or SQL queries.
+
+Entity – A POJO mapped to a DB table.
+
+
+5.Hibernate Annotations
+Annotation	Usage
+@Entity	Marks a class as a Hibernate entity
+@Table(name="...")	Specifies the table name
+@Id	Specifies the primary key
+@GeneratedValue	Auto-generates primary key values
+@Column	Maps a field to a column
+
+
+eg---
+@Entity
+@Table(name = "employee")
+public class Employee {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @Column(name = "emp_name")
+    private String name;
+}
+
+
+
+8. Hibernate Caching
+First-level Cache: Enabled by default, scoped to the Session.
+
+Second-level Cache: Needs configuration, scoped to SessionFactory. (e.g., EhCache, Infinispan)
